@@ -4,5 +4,22 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "graphql-cli": "^3.0.14",
+    "graphql-import": "^1.0.2",
+    "graphql-yoga": "^1.18.3",
+    "prisma-binding": "^2.3.16"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.js --ext js,graphql --exec babel-node",
+    "postbuild": "./node_modules/babel-cli/bin/babel.js src/ --out-dir src/",
+    "get-schema": "graphql get-schema -p prisma"
   }
 }
